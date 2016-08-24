@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b!znnz5^)eo=23(6f70sz3_s)zh(0pqr_ac+f*b1i#*70%!e5f'
+SECRET_KEY = os.environ["SECRET_KEY"],
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -72,15 +72,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'upload_preprocessing_service.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
+########## DATABASE CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ups',
+        'USER': os.environ["UPS_MYSQL_USERNAME"],
+        'PASSWORD': os.environ["UPS_MYSQL_PASSWORD"],
+        'HOST': os.environ["UPS_MYSQL_HOSTNAME"],
+        'PORT': os.environ["UPS_MYSQL_PORT"],
     }
 }
+########## END DATABASE CONFIGURATION
 
 
 # Password validation
