@@ -1,5 +1,5 @@
 """
-WSGI config for upload_preprocessing_service project.
+WSGI config for idstore-app project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "upload_preprocessing_service.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "idstore-app.settings")
 
 application = get_wsgi_application()
