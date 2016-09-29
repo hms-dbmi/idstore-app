@@ -143,3 +143,5 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 ########## END STATIC FILE CONFIGURATION
+
+REST_FRAMEWORK = {'DEFAULT_AUTHENTICATION_CLASSES': []}
