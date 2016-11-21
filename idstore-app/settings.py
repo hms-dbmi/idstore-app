@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"],
+SECRET_KEY = os.environ.get("SECRET_KEY"),
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'idstore',
-        'USER': os.environ["UPS_MYSQL_USERNAME"],
-        'PASSWORD': os.environ["UPS_MYSQL_PASSWORD"],
-        'HOST': os.environ["UPS_MYSQL_HOSTNAME"],
-        'PORT': os.environ["UPS_MYSQL_PORT"],
+        'USER': os.environ.get("UPS_MYSQL_USERNAME"),
+        'PASSWORD': os.environ.get("UPS_MYSQL_PASSWORD"),
+        'HOST': os.environ.get("UPS_MYSQL_HOSTNAME"),
+        'PORT': os.environ.get("UPS_MYSQL_PORT"),
     }
 }
 ########## END DATABASE CONFIGURATION
@@ -145,3 +145,8 @@ STATICFILES_FINDERS = (
 ########## END STATIC FILE CONFIGURATION
 
 REST_FRAMEWORK = {'DEFAULT_AUTHENTICATION_CLASSES': []}
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
