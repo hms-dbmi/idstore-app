@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'idstore-app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ups',
+        'NAME': 'idstore',
         'USER': os.environ["UPS_MYSQL_USERNAME"],
         'PASSWORD': os.environ["UPS_MYSQL_PASSWORD"],
         'HOST': os.environ["UPS_MYSQL_HOSTNAME"],
